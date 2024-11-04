@@ -1,0 +1,60 @@
+/* collage.css */
+
+/* Set the background color of the body to black */
+body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style for the collage container */
+  .collage-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: 150px;
+    grid-gap: 5px;
+    padding: 5px;
+  }
+  
+  /* Different sizes for images */
+  .item--small {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+  
+  .item--medium {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  
+  .item--large {
+    grid-row: span 3;
+    grid-column: span 3;
+  }
+  
+  /* Style for images */
+  .collage-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Return button styling */
+  .return-button {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .return-button button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .return-button button:hover {
+    background-color: #ccc;
+  }
