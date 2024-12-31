@@ -356,22 +356,15 @@
   }
   
   /* Services Section */
-  .services {
-    background: #131313;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  /* Add this to your existing CSS file */
-.services__img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  object-fit: cover;
+/* =========================
+   SECTION + HEADER STYLES
+   ========================= */
+.services {
+  /* Center the overall section if desired */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .services h1 {
@@ -392,76 +385,64 @@
   -moz-text-fill-color: transparent;
   margin-bottom: 5rem;
   font-size: 2.5rem;
+  text-align: center;
 }
 
+/* =========================
+   GRID CONTAINER
+   ========================= */
 .services__container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  /* Two columns side by side */
+  grid-template-columns: 1fr 1fr;
+  /* Space between cards */
+  grid-gap: 2rem;
+  /* Limit the container width and center it */
+  max-width: 1200px;
+  width: 100%;
+  justify-items: center;
+  margin: 0 auto;
 }
 
-/* Default card styling (applies to all cards) */
+/* =========================
+   CARD STYLES
+   ========================= */
 .services__card {
-  margin: 1rem;
-  width: 400px;
+  /* Increase card size */
+  width: 450px;
+  background: #fff; /* or your chosen background color */
+  color: #000;      /* text color on light background */
   border-radius: 4px;
   position: relative;
-  color: #fff;
-  overflow: hidden; /* Helps ensure content doesn't overlap if card height changes */
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in;
+  padding: 1rem; /* space around card content */
 }
 
-/* Specific background + fixed height for the first two cards */
-.services__card:nth-child(1),
-.services__card:nth-child(2) {
-  height: 525px;
-  background-size: cover;
-  background-position: center;
+.services__card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
-.services__card:nth-child(1) {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(17, 17, 17, 0.6) 100%
-    ),
-    url('/images/pic3.jpg');
+/* =========================
+   CARD CONTENT STYLES
+   ========================= */
+.services__img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
-.services__card:nth-child(2) {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(17, 17, 17, 0.9) 100%
-    ),
-    url('/images/pic4.jpg');
+.services__card h2 {
+  margin: 0.5rem 0 0.25rem 0;
 }
 
-/* Absolute positioning for text/buttons on first two cards */
-.services__card:nth-child(1) h2,
-.services__card:nth-child(1) p,
-.services__card:nth-child(1) button,
-.services__card:nth-child(2) h2,
-.services__card:nth-child(2) p,
-.services__card:nth-child(2) button {
-  position: absolute;
-}
-
-.services__card:nth-child(1) h2,
-.services__card:nth-child(2) h2 {
-  top: 350px;
-  left: 30px;
-}
-
-.services__card:nth-child(1) p,
-.services__card:nth-child(2) p {
-  top: 400px;
-  left: 30px;
-}
-
-.services__card:nth-child(1) button,
-.services__card:nth-child(2) button {
-  top: 440px;
-  left: 30px;
+.services__card p {
+  margin: 0.25rem 0 0.5rem 0;
 }
 
 .services__card button {
@@ -476,54 +457,17 @@
 
 .services__card button:hover {
   cursor: pointer;
+  opacity: 0.9;
 }
 
-.services__card:hover {
-  transform: scale(1.075);
-  transition: 0.2s ease-in;
-  cursor: pointer;
-}
-
-/* -------------------------------
-   SPECIAL OVERRIDES FOR 3RD CARD
-   ------------------------------- */
-
-/* Remove the background image and absolute positioning for the third card */
+/* =========================
+   THIRD CARD SPANS BOTH COLUMNS
+   (Kids Learn2Code in center)
+   ========================= */
 .services__card:nth-child(3) {
-  background: #fff;       /* Or any solid color you prefer */
-  color: #000;            /* Dark text on light background */
-  height: auto;           /* Let the card expand based on content */
-  padding: 1rem;
-  text-align: left;
+  grid-column: 1 / 3;  /* Spans both columns */
+  justify-self: center; /* Center horizontally */
 }
-
-.services__card:nth-child(3) h2,
-.services__card:nth-child(3) p,
-.services__card:nth-child(3) button {
-  position: static;       /* Text flows normally below the image */
-  margin: 0.5rem 0 0 0;   /* Some margin to separate the elements */
-}
-
-.services__card:nth-child(3) h2 {
-  margin-top: 0;          /* Start the heading at the top of content area */
-}
-
-.services__card:nth-child(3) button {
-  /* If you don’t need a button here, you can remove or style as desired */
-  background: #f77062;
-  margin-top: 1rem;
-}
-  
-  @media screen and (max-width: 960px) {
-    .services {
-      height: 1600px;
-    }
-  
-    .services h1 {
-      font-size: 2rem;
-      margin-top: 12rem;
-    }
-  }
   
   @media screen and (max-width: 480px) {
     .services {
