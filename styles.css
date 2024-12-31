@@ -365,6 +365,8 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  background-color: #000;
+
 }
 
 .services h1 {
