@@ -374,95 +374,145 @@
   object-fit: cover;
 }
 
-  .services h1 {
-    background-color: #ff8177;
-    background-image: linear-gradient(
-      to right,
-      #ff8177 0%,
-      #ff867a 0%,
-      #ff8c7f 21%,
-      #f99185 52%,
-      #cf556c 78%,
-      #b12a5b 100%
-    );
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    margin-bottom: 5rem;
-    font-size: 2.5rem;
-  }
-  
-  .services__container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .services__card {
-    margin: 1rem;
-    height: 525px;
-    width: 400px;
-    border-radius: 4px;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(17, 17, 17, 0.6) 100%
-      ),
-      url('/images/pic3.jpg');
-    background-size: cover;
-    position: relative;
-    color: #fff;
-  }
-  
-  .services__card:before {
-    opacity: 0.2;
-  }
-  
-  .services__card:nth-child(2) {
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(17, 17, 17, 0.9) 100%
-      ),
-      url('/images/pic4.jpg');
-  }
-  
-  .services__card h2 {
-    position: absolute;
-    top: 350px;
-    left: 30px;
-  }
-  
-  .services__card p {
-    position: absolute;
-    top: 400px;
-    left: 30px;
-  }
-  
-  .services__card button {
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    background: #f77062;
-    position: absolute;
-    top: 440px;
-    left: 30px;
-    font-size: 1rem;
-  }
-  
-  .services__card button:hover {
-    cursor: pointer;
-  }
-  
-  .services__card:hover {
-    transform: scale(1.075);
-    transition: 0.2s ease-in;
-    cursor: pointer;
-  }
+.services h1 {
+  background-color: #ff8177;
+  background-image: linear-gradient(
+    to right,
+    #ff8177 0%,
+    #ff867a 0%,
+    #ff8c7f 21%,
+    #f99185 52%,
+    #cf556c 78%,
+    #b12a5b 100%
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  margin-bottom: 5rem;
+  font-size: 2.5rem;
+}
+
+.services__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Default card styling (applies to all cards) */
+.services__card {
+  margin: 1rem;
+  width: 400px;
+  border-radius: 4px;
+  position: relative;
+  color: #fff;
+  overflow: hidden; /* Helps ensure content doesn't overlap if card height changes */
+}
+
+/* Specific background + fixed height for the first two cards */
+.services__card:nth-child(1),
+.services__card:nth-child(2) {
+  height: 525px;
+  background-size: cover;
+  background-position: center;
+}
+
+.services__card:nth-child(1) {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(17, 17, 17, 0.6) 100%
+    ),
+    url('/images/pic3.jpg');
+}
+
+.services__card:nth-child(2) {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(17, 17, 17, 0.9) 100%
+    ),
+    url('/images/pic4.jpg');
+}
+
+/* Absolute positioning for text/buttons on first two cards */
+.services__card:nth-child(1) h2,
+.services__card:nth-child(1) p,
+.services__card:nth-child(1) button,
+.services__card:nth-child(2) h2,
+.services__card:nth-child(2) p,
+.services__card:nth-child(2) button {
+  position: absolute;
+}
+
+.services__card:nth-child(1) h2,
+.services__card:nth-child(2) h2 {
+  top: 350px;
+  left: 30px;
+}
+
+.services__card:nth-child(1) p,
+.services__card:nth-child(2) p {
+  top: 400px;
+  left: 30px;
+}
+
+.services__card:nth-child(1) button,
+.services__card:nth-child(2) button {
+  top: 440px;
+  left: 30px;
+}
+
+.services__card button {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #f77062;
+  font-size: 1rem;
+}
+
+.services__card button:hover {
+  cursor: pointer;
+}
+
+.services__card:hover {
+  transform: scale(1.075);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+
+/* -------------------------------
+   SPECIAL OVERRIDES FOR 3RD CARD
+   ------------------------------- */
+
+/* Remove the background image and absolute positioning for the third card */
+.services__card:nth-child(3) {
+  background: #fff;       /* Or any solid color you prefer */
+  color: #000;            /* Dark text on light background */
+  height: auto;           /* Let the card expand based on content */
+  padding: 1rem;
+  text-align: left;
+}
+
+.services__card:nth-child(3) h2,
+.services__card:nth-child(3) p,
+.services__card:nth-child(3) button {
+  position: static;       /* Text flows normally below the image */
+  margin: 0.5rem 0 0 0;   /* Some margin to separate the elements */
+}
+
+.services__card:nth-child(3) h2 {
+  margin-top: 0;          /* Start the heading at the top of content area */
+}
+
+.services__card:nth-child(3) button {
+  /* If you don’t need a button here, you can remove or style as desired */
+  background: #f77062;
+  margin-top: 1rem;
+}
   
   @media screen and (max-width: 960px) {
     .services {
