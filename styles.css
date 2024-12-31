@@ -410,17 +410,17 @@
    CARD STYLES
    ========================= */
 .services__card {
-  /* Increase card size */
+  /* Change the background color of the individual boxes to forest green */
+  background-color: #0b3d0b; /* Forest green */
+  color: #fff; /* Ensure text remains readable */
   width: 450px;
-  background: #fff; /* or your chosen background color */
-  color: #000;      /* text color on light background */
   border-radius: 4px;
   position: relative;
   overflow: hidden;
   text-align: left;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in;
-  padding: 1rem; /* space around card content */
+  padding: 1rem;
 }
 
 .services__card:hover {
@@ -466,9 +466,14 @@
    THIRD CARD SPANS BOTH COLUMNS
    (Kids Learn2Code in center)
    ========================= */
+.services__card:nth-child(2) {
+  grid-row: 1; /* Force Stock Predictor onto the first row */
+  grid-column: 2; /* Place it in the second column */
+}
+
 .services__card:nth-child(3) {
-  grid-column: 1 / 3;  /* Spans both columns */
-  justify-self: center; /* Center horizontally */
+  grid-row: 2; /* Force KidsLearn2Code to the second row */
+  grid-column: 1 / 3; /* Span both columns */
 }
   
   @media screen and (max-width: 480px) {
